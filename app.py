@@ -10,7 +10,7 @@ app = Flask(__name__)
 CORS(app)
 
 # MongoDB connection — replace with your actual string
-client = MongoClient("mongodb+srv://anuroop:<441461>@cluster0.r7ik2a3.mongodb.net/")
+client = MongoClient("mongodb+srv://anuroop:anuroop@cluster0.r7ik2a3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 db = client["github_events"]
 collection = db["events"]
 
