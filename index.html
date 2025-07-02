@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GitHub Events Viewer</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h2 { color: #333; }
+        p { border-bottom: 1px solid #ddd; padding: 5px 0; }
+    </style>
+</head>
+<body>
+    <h2>GitHub Repository Events</h2>
+    <div id="events"></div>
+
+    <script>
+        async function fetchEvents() {
+            const res = await fetch("/events");
+            const data = await res.json();
+
+            let html = "";
+            data.reverse().forEach(event => {
+                let msg = "";
+                const ts = new Date(event.timestamp).toUTCString();
+                if (event.action === "push") {
+                    msg = `${event.author} pushed to ${event.to_branch} on ${ts}`;
+                } else if (event.action === "pull_request") {
+                    msg = `${event.author} submitted a pull request from ${event.from_branch} to ${event.to_branch} on ${ts}`;
+                } else if (event.action === "merge") {
+                    msg = `${event.author} merged branch ${event.from_branch} to ${event.to_branch} on ${ts}`;
+                }
+                html += `<p>${msg}</p>`;
+            });
+
+            document.getElementById("events").innerHTML = html;
+        }
+
+        fetchEvents();
+        setInterval(fetchEvents, 15000);
+    </script>
+</body>
+</html>
