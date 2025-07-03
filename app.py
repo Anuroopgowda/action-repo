@@ -1,5 +1,5 @@
 def greet():
-    print("Hello anuroop")
+    print("Hello World")
 
 if __name__ == "__main__":
     greet()
