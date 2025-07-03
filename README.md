@@ -1,3 +1,3 @@
 # action-repo
 
-Webhook is added to action-repo successfully
+Webhook added to action-repo successfully
