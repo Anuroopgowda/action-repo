@@ -1,5 +1,5 @@
 def greet():
-    print("Hello from the action-repo!")
+    print("Hello Anuroop")
 
 if __name__ == "__main__":
     greet()
