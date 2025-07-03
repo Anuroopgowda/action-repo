@@ -1,3 +1,4 @@
 # action-repo
 
-Webhook added to action-repo successfully
+1. Clone this `action-repo`.
+2. Run `python app.py`
